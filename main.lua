@@ -2,17 +2,17 @@ function init_map()
 	local cor = 0
 	local current_line = 0
 	
-	for i=1,1200 do
-		if i % 2 == 0 then
-			map[i] = cor
-		else
-			map[i] = (cor == 0 and 1) or 0
-		end
-
+	for i=0,1200 do
 		if math.floor(i/40) ~= current_line then
 			cor = (cor == 0 and 1) or 0
 			current_line = current_line + 1
 		end
+	
+		if i % 2 == 0 then
+			map[i] = cor
+		else
+			map[i] = (cor == 0 and 1) or 0
+		end		
 	end	
 end
 
@@ -67,7 +67,7 @@ end
 
 function love.draw()
 	-- Desenha o mapa
-	for i=1,1200 do
+	for i=0,1200 do
 		--print(map[i])
 		--love.timer.sleep(1000)
 		if map[i] == 0 then
